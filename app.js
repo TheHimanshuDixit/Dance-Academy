@@ -2,14 +2,16 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const bodyParser = require("body-parser");
+require("dotenv").config();
 
 // getting-started.js
 const mongoose = require('mongoose');
+const MONGO_URI = process.env.MONGO_URI;
 
 main().catch(err => console.log(err));
 
 async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/contactDance');
+    await mongoose.connect(MONGO_URI);
 }
 
 const port = 80;
